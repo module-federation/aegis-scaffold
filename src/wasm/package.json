@@ -1,0 +1,27 @@
+{
+  "name": "wasm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "assemblyscript": "^0.24.1"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./build/release.js",
+      "types": "./build/release.d.ts"
+    }
+  },
+  "scripts": {
+    "asbuild:debug": "asc assembly/index.ts --exportRuntime --bindings --target debug",
+    "asbuild:release": "asc assembly/index.ts --exportRuntime --bindings --target release",
+    "asbuild": "npm run asbuild:debug && npm run asbuild:release && npm run deploy",
+    "deploy": "cp build/release.wasm ../../dist/main.wasm && curl -s http://localhost/reload",
+    "test": "node tests",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.24.1"
+  }
+}
