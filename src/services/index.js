@@ -1,2 +1,2 @@
 // export service classes / namespaces
-// see https://github.com/module-federation/aegis-app for examples
+// see https://github.com/module-federation/aegis-scaffold for examples

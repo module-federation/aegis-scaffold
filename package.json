@@ -1,5 +1,5 @@
 {
-  "name": "aegis-app",
+  "name": "aegis-scaffold",
   "version": "1.0.1",
   "description": "ÆGIS federated application scaffold",
   "main": "./dist/main.js",
@@ -7,12 +7,12 @@
     "pnp": false
   },
   "repository": {
-    "url": "https://github.com/module-federation/aegis-app"
+    "url": "https://github.com/module-federation/aegis-scaffold"
   },
   "scripts": {
     "build": "yarn build-local",
     "start": "yarn watch && cd ../aegis-host && yarn start",
-    "watch": "nodemon --watch src --exec yarn hot-reload",
+    "watch": "node watch.mjs",
     "bar": "yarn build-n-restart",
     "build-local": "export NODE_OPTIONS=--openssl-legacy-provider && yarn clean && webpack --config webpack.config.local.js && cd ../aegis/wasm && yarn deploy && curl -s http://localhost/reload",
     "start-local": "node --title aegis-repo repo.js 8000 dist",
@@ -22,7 +22,7 @@
     "new-model": "git commit -a -m test && yarn build-local && yarn open-reload",
     "webswitch": "cd ../aegis-host ; export SWITCH=true ; export PORT=8888 ; yarn start",
     "link-n-restart": "cd ../aegis && ./start.sh",
-    "build-all": "cd ../aegis && yarn build && cd ../aegis-host && yarn build && cd ../aegis-app && yarn build-local",
+    "build-all": "cd ../aegis && yarn build && cd ../aegis-host && yarn build && cd ../aegis-scaffold && yarn build-local",
     "build-n-restart": "yarn build-all && yarn link-n-restart",
     "stop-host": "cd ../aegis-host && yarn stop",
     "restart-host": "yarn stop-host && yarn rebuild",

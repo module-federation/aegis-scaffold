@@ -184,7 +184,6 @@
  * @property {endpoints} [routes] - additional custom API endpoints - specify inbound port
  * @property {{factory:import("../adapters/datasources/datasource-mongodb"),url:string,credentials?:string}} [datasource] - custom datasource
  * for this model. If not set, the default set by the server is used.
- *
  */
 
 /**
