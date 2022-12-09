@@ -167,7 +167,7 @@
  * @property {string} endpoint URI reference (e.g. plural of `modelName` noun)
  * @property {modelSpecFactoryFn} factory returns factory function that creates the model instance
  * @property {object} [dependencies] injected into the model for inverted dependency/control
- * @property {Array<import("./mixins").functionalMixin>} [mixins] - use functional mixins
+ * @property {Array<import("./validations").functionalMixin>} [mixins] - use functional mixins
  * to compose the object from common domain logic, like input validation.
  * @property {onUpdate} [onUpdate] - Function called to handle update requests. Called
  * before save.
@@ -234,7 +234,7 @@
  * @property { executeCommand } executeCommand
  */
 
-import GlobalMixins from './mixins'
+import GlobalMixins from './validations'
 import bindAdapters from './bind-adapters'
 
 // Service dependencies
