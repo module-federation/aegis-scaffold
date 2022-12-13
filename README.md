@@ -16,7 +16,12 @@ or launch your dev env in gitpod:
 ```html
 https://gitpod.io/github.com/your-org/your-repo
 ```
+You can update the URL in this markdown to open your repo with the gitpod button below:
+
+```html
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/github.com/your-org/your-repo) 
+```
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/github.com/your-org/your-repo) 
 
 
-See the [article](https://trmidboe.medium.com/discounting-the-microservice-premium-a95311c61367) that describes federated applications in detail.
+See an example of a federated app [here](https://github.com/module-federation/aegis-app). Read the [article](https://trmidboe.medium.com/discounting-the-microservice-premium-a95311c61367) that describes federated applications in detail. 
