@@ -1,1 +1,75 @@
-mainConfiguration: https://github.com/module-federation/aegis-host
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # add a check to pull requests (defaults to true)
+    addCheck: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: true
+
+tasks:
+  - name: mongo
+    command: |
+      gp sync-await start
+      cd ../aegis
+      ./mongo.sh
+
+  - name: install & run
+    openIn: main
+    env:
+      NODE_OPTIONS: --openssl-legacy-provider
+    before: |
+      cd ../fdp
+      nvm install --lts
+      nvm use --lts
+      yarn
+      yarn add express
+      nohup node repo.js 8003 dist &
+      nohup node repo.js 8001 cache &
+    init: |
+      cd ../fdp
+      yarn
+      yarn build-local1
+    command: |
+      node --title aegis src/bootstrap.js
+
+  - name: service mesh
+    openMode: split-right
+    env:
+      PORT: 8888
+      SWITCH: true
+    command: |
+      gp sync-await start
+      node --title webswitch src/bootstrap.js
+
+  - name: watch
+    openMode: split-right
+    command: |
+      cd ../fdp
+      yarn watch
+
+ports:
+  - port: 8000
+    description: local repo
+    visibility: public
+    onOpen: ignore
+  - port: 8080
+    description: http api
+    visibility: public
+    onOpen: open-preview
+  - port: 8888
+    description: webswitch
+    visibility: public
+    onOpen: open-browser
+  - port: 27017
+    description: mongodb
+    visibility: public
+    onOpen: ignore
+  - port: 5353
+    description: multicast dns
+    visibility: public
+    onOpen: ignore
