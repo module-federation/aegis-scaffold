@@ -5,7 +5,7 @@
 This template repo provides the scaffolding to build a federated application on ÆGIS. Click [here](https://github.com/module-federation/microlib-examples/generate) to generate your repo from this a tempate. Fill out the form. A new repo is created. Clone it and start coding!
 
 ```shell
-git clone https://github.com/module-federation/<your repo name>
+git clone https://github.com/<your org>/<your repo name>
 cd <your repo name>
 cp dotenv.example .env
 yarn
