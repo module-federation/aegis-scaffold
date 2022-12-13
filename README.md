@@ -2,7 +2,7 @@
 
 Getting Started
 
-Click [here](https://github.com/module-federation/microlib-examples/generate)  to use this project as a tempate. Fill out the form. A new repo is created. Clone it and start coding!
+This template repo provides the scaffolding to build a federated application on ÆGIS. Click [here](https://github.com/module-federation/microlib-examples/generate) to use this project as a tempate. Fill out the form. A new repo is created. Clone it and start coding!
 
 ```shell
 git clone https://github.com/module-federation/<your repo name>
@@ -18,5 +18,3 @@ Otherwise, fork this repo and
 
 
 See the [article](https://trmidboe.medium.com/discounting-the-microservice-premium-a95311c61367) that describes these concepts in detail.
-
-This template repo provides the scaffolding to build a federated application on ÆGIS. 
