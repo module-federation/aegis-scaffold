@@ -7,7 +7,6 @@ This template repo provides the scaffolding to build a federated application on 
 ```shell
 git clone https://github.com/<your org>/<your repo name>
 cd <your repo name>
-cp dotenv.example .env
 yarn
 yarn build
 ```
